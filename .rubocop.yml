@@ -11,8 +11,12 @@ Documentation:
   Exclude:
     - spec/**/*
 
-TrailingBlankLines:
-  Enabled: false
+MethodLength:
+  Exclude:
+    - spec/**/*
 
 StringLiterals:
   EnforcedStyle: double_quotes
+
+TrailingBlankLines:
+  Enabled: false
