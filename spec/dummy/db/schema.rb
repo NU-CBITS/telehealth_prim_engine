@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217224532) do
+ActiveRecord::Schema.define(version: 20150218143950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,30 @@ ActiveRecord::Schema.define(version: 20150217224532) do
   end
 
   add_index "telehealth_prim_engine_pre_screenings", ["version"], name: "index_telehealth_prim_engine_pre_screenings_on_version", unique: true, using: :btree
+
+  create_table "telehealth_prim_engine_users", force: :cascade do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "failed_attempts",        default: 0,     null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.boolean  "superuser",              default: false, null: false
+    t.boolean  "researcher",             default: false, null: false
+    t.boolean  "content_author",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "telehealth_prim_engine_users", ["email"], name: "index_telehealth_prim_engine_users_on_email", unique: true, using: :btree
+  add_index "telehealth_prim_engine_users", ["reset_password_token"], name: "index_telehealth_prim_engine_users_on_reset_password_token", unique: true, using: :btree
+  add_index "telehealth_prim_engine_users", ["unlock_token"], name: "index_telehealth_prim_engine_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "telehealth_prim_engine_pre_screening_answers", "telehealth_prim_engine_pre_screening_questions"
   add_foreign_key "telehealth_prim_engine_pre_screening_question_responses", "telehealth_prim_engine_pre_screening_answers"
