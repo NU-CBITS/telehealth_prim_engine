@@ -1,9 +1,17 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= "test"
 require "spec_helper"
+
 require File.expand_path("../dummy/config/environment", __FILE__)
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+
+require "simplecov"
+SimpleCov.minimum_coverage 100
+SimpleCov.start "rails"
+dir = File.dirname(__FILE__)
+Dir["#{ dir }/../app/controllers/**/*.rb"].each { |f| require f }
+Dir["#{ dir }/../app/models/**/*.rb"].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
