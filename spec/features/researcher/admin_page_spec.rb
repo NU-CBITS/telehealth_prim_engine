@@ -8,6 +8,13 @@ RSpec.feature "Researcher using Home Page", type: :feature do
 
     section.consent_form_notification? :participant1
   end
+
+  # scenario "sees Participant responses to consent as well as version" do
+  #   section = ResearcherAdminSection.new(self).sign_in_and_visit
+
+  #   section.responses_to_consent? :participant5
+  #   section.consent_version? :participant5
+  # end
 end
 
 class ResearcherAdminSection
@@ -28,6 +35,26 @@ class ResearcherAdminSection
     @example.instance_eval do
       expect(page).to have_css(
         "##{ participant_id } .consent-notification .sent"
+      )
+    end
+  end
+
+  def responses_to_consent?(participant_name)
+    participant_id = participant(participant_name).id
+
+    @example.instance_eval do
+      expect(page).to have_css(
+        "##{ participant_id } .consent-responses .sent"
+      )
+    end
+  end
+
+  def consent_version?(participant_name)
+    participant_id = participant(participant_name).id
+
+    @example.instance_eval do
+      expect(page).to have_css(
+        "##{ participant_id } .consent-responses .sent"
       )
     end
   end
