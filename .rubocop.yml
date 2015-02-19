@@ -7,6 +7,9 @@ AllCops:
     - vendor/**/*
   RunRailsCops: true
 
+Delegate:
+  Enabled: false
+
 Documentation:
   Exclude:
     - spec/**/*

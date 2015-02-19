@@ -1,0 +1,6 @@
+<% 10.times do |n| %>
+form<%= n %>:
+  expires_on: <%= Date.current + n.days %>
+  study_number: abcd<%= n %>
+  version: <%= n %>
+<% end %>

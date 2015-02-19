@@ -1,0 +1,6 @@
+<% 10.times do |n| %>
+researcher<%= n %>:
+  email: researcher<%= n %>.example.com
+  encrypted_password: <%= TelehealthPrimEngine::User.new.send(:password_digest, "humpty dump+y sat on a w411") %>
+  researcher: true
+<% end %>

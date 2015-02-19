@@ -1,0 +1,6 @@
+<% 500.times do |n| %>
+participant<%= n %>:
+  participant: participant<%= n %>
+  consent_form: form<%= n % 10 + 1 %>
+  sent_at: <%= Time.current - 1.day %>
+<% end %>
