@@ -12,3 +12,7 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+gem "bit_authenticator",
+    git: "https://github.com/cbitstech/bit_authenticator.git",
+    tag: "0.1.0"

@@ -17,9 +17,12 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.md"]
 
   s.add_dependency "rails", "~> 4.2.0"
+  s.add_dependency "devise", "~> 3.4.1"
+  s.add_dependency "cancancan", "~> 1.10.1"
 
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails", "~> 3.0"
+  s.add_development_dependency "capybara", "~> 2.4.4"
   s.add_development_dependency "brakeman"
   s.add_development_dependency "rubocop", "~> 0.29"
   s.add_development_dependency "simplecov", "~> 0.9.1"

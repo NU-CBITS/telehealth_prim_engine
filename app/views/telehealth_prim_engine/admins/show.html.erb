@@ -1,0 +1,11 @@
+<% @participants.each do |participant| %>
+  <div id="<%= participant.id %>">
+    <div class="consent-notification">
+      <% if participant.consent_notification_sent? %>
+        <span class="sent"><%= t("consent_notification.sent") %> <%= participant.consent_notification_sent_at %></span>
+      <% else %>
+        <span class="not-sent"><%= t("consent_notification.not_sent") %></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

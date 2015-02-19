@@ -1,25 +1,25 @@
 require "rails_helper"
 
 module TelehealthPrimEngine
-  RSpec.describe PreScreening, type: :model do
+  RSpec.describe Participant, type: :model do
     def valid_attributes
-      [{ version: "abcd" }]
+      [{ external_id: "abcd" }]
     end
 
     def invalid_attributes
       [
-        { version: "abcd" * 15 },
-        { version: nil }
+        { external_id: "abcd" * 15 },
+        { external_id: nil }
       ]
     end
 
     it "accepts valid attributes" do
-      valid_attributes.each { |a| expect(PreScreening.new(a)).to be_valid }
+      valid_attributes.each { |a| expect(Participant.new(a)).to be_valid }
     end
 
     it "rejects invalid attributes" do
       invalid_attributes.each do |a|
-        expect(PreScreening.new(a)).not_to be_valid
+        expect(Participant.new(a)).not_to be_valid
       end
     end
   end
